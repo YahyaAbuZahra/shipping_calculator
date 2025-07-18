@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shipping Calculator</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 5px; padding: 8px; }
+  </style>
+</head>
+<body>
+
+  <h1>Shipping Calculator</h1>
+
+  <label>Weight (kg):</label>
+  <input type="number" id="weight"><br>
+
+  <label>Distance (km):</label>
+  <input type="number" id="distance"><br>
+
+  <button onclick="calculateShipping()">Calculate</button>
+
+  <h2 id="result"></h2>
+
+  <script>
+    function calculateShipping() {
+      const weight = parseFloat(document.getElementById('weight').value);
+      const distance = parseFloat(document.getElementById('distance').value);
+      const ratePerKg = 2.5;
+      const ratePerKm = 1.2;
+      const cost = (weight * ratePerKg) + (distance * ratePerKm);
+      document.getElementById('result').innerText = `Estimated Shipping Cost: $${cost.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>
